@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
   // State for "Personal To Do List"
@@ -13,7 +14,7 @@ function App() {
   const [theirNewTodo, setTheirNewTodo] = useState('');
   const [theirEditingIndex, setTheirEditingIndex] = useState(null);
   const [theirEditedTodo, setTheirEditedTodo] = useState('');
-
+   
   // Input change
   const handleInputChange = (event, setFunction) => {
     setFunction(event.target.value);
@@ -23,7 +24,7 @@ function App() {
   const handleAddTodo = (todosArray, setFunction, newTodoValue) => {
     if (newTodoValue.trim() !== '') {
       setFunction([newTodoValue, ...todosArray]);
-      setMyNewTodo(''); // Fixed here
+      setMyNewTodo('');
     }
   };
 
@@ -43,7 +44,7 @@ function App() {
   // Save button
   const handleSaveClick = (index, todosArray, setFunction, setEditingIndexFunction, setEditedTodoFunction) => {
     const updatedTodos = [...todosArray];
-    updatedTodos[index] = myEditedTodo; // Fixed here
+    updatedTodos[index] = myEditedTodo; 
     setFunction(updatedTodos);
     setEditingIndexFunction(null);
     setEditedTodoFunction('');
