@@ -23,7 +23,7 @@ function App() {
   const handleAddTodo = (todosArray, setFunction, newTodoValue) => {
     if (newTodoValue.trim() !== '') {
       setFunction([newTodoValue, ...todosArray]);
-      setNewTodoValue('');
+      setMyNewTodo(''); // Fixed here
     }
   };
 
@@ -43,7 +43,7 @@ function App() {
   // Save button
   const handleSaveClick = (index, todosArray, setFunction, setEditingIndexFunction, setEditedTodoFunction) => {
     const updatedTodos = [...todosArray];
-    updatedTodos[index] = editedTodo;
+    updatedTodos[index] = myEditedTodo; // Fixed here
     setFunction(updatedTodos);
     setEditingIndexFunction(null);
     setEditedTodoFunction('');
@@ -109,7 +109,7 @@ function App() {
           type="text"
           value={theirNewTodo}
           onChange={(event) => handleInputChange(event, setTheirNewTodo)}
-          placeholder="Add a new todo"
+          placeholder="Add a new task"
         />
 
         <button className="add-button" onClick={() => handleAddTodo(theirTodos, setTheirTodos, theirNewTodo)}>
